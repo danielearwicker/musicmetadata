@@ -5,7 +5,7 @@ var fs     = require('fs');
 var test   = require('prova');
 
 test('audio-frame-header-bug', function (t) {
-  t.plan(1);
+  t.plan(2);
 
   var sample = (process.browser) ?
     new Blob([fs.readFileSync(__dirname + '/samples/audio-frame-header-bug.mp3')])
@@ -14,6 +14,9 @@ test('audio-frame-header-bug', function (t) {
   new mm(sample, { duration: true })
     .on('metadata', function (result) {
       t.strictEqual(result.duration, 201);
-      t.end();
+    })
+    .on('done', function (err) {
+      t.error(err)
+      t.end()
     })
 });

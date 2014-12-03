@@ -12,6 +12,7 @@ test('id4', function (t) {
 
   new id3(sample, { duration: true })
     .on('metadata', function (result) {
+      // console.log(result)
       t.strictEqual(result.title, 'Voodoo People (Pendulum Remix)', 'title');
       t.strictEqual(result.artist[0], 'The Prodigy', 'artist');
       t.strictEqual(result.albumartist[0], 'Pendulum', 'albumartist');
@@ -81,7 +82,7 @@ test('id4', function (t) {
       t.strictEqual(result, 'Electronic', 'raw gnre');
     })
     .on('stik', function (result) {
-      t.strictEqual(result, 256, 'raw stik');
+      t.strictEqual(result, 1, 'raw stik');
     })
     .on('©alb', function (result) {
       t.strictEqual(result, 'Voodoo People', 'raw ©alb');

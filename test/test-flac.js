@@ -12,6 +12,7 @@ test('flac', function (t) {
 
   new mm(sample)
     .on('metadata', function (result) {
+      console.log(result)
       t.strictEqual(result.title, 'Brian Eno', 'title');
       t.strictEqual(result.artist[0], 'MGMT', 'artist');
       t.strictEqual(result.albumartist.length, 0, 'albumartist length');

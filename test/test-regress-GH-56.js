@@ -16,5 +16,6 @@ test('mp3 cbr calculation', function (t) {
     })
     .on('done', function (err) {
       t.error(err);
+      t.end()
     });
 });
